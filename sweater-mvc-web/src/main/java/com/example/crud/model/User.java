@@ -4,8 +4,10 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Iterator;
 
 @Entity
 public class User implements UserDetails {
@@ -40,8 +42,8 @@ public class User implements UserDetails {
         addRole(role);
     }
 
-    public User(String name, String password, Collection<Role> roles) {
-        this.name = name;
+    public User(String email, String password, Collection<Role> roles) {
+        this.email = email;
         this.password = password;
         this.roles = roles;
     }
@@ -110,7 +112,11 @@ public class User implements UserDetails {
     @Override
     public String toString() {
         return name + " " + lastName + " " + email + " " + age + " " + password + " "
-                + roles;
+                + roles.iterator().next() + " " + roles.iterator().next();
+    }
+
+    public String getUserRoles() {
+        return roles.toString();
     }
 
     @Override
@@ -124,7 +130,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return name;
+        return email;
     }
 
     @Override

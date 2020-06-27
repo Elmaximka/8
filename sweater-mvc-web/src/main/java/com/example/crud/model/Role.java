@@ -4,6 +4,7 @@ package com.example.crud.model;
 
 import org.springframework.security.core.GrantedAuthority;
 
+import javax.annotation.security.RolesAllowed;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.HashSet;

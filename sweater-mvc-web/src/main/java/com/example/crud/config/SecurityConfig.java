@@ -1,6 +1,8 @@
 package com.example.crud.config;
 
 import com.example.crud.handler.LoginSuccessHandler;
+import com.example.crud.model.Role;
+import com.example.crud.model.User;
 import com.example.crud.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -10,9 +12,14 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+
+import java.util.Collection;
+import java.util.HashSet;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -60,7 +67,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //страницы аутентификаци доступна всем
                 .antMatchers("/login", "/registration").anonymous()
                 // защищенные URL
-                .antMatchers("/admin/**", "/users").access("hasAnyAuthority('admin')").anyRequest().authenticated();
+                .antMatchers("/user").access("hasAnyAuthority('ADMIN', 'USER')")
+                .antMatchers("/admin/**", "/users").access("hasAnyAuthority('ADMIN')").anyRequest().authenticated();
 
     }
 

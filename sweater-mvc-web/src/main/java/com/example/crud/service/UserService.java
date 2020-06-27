@@ -35,15 +35,19 @@ public class UserService implements UserDetailsService {
     public void addNewUser(User user){
         userRepository.save(user);
     }
-    public void deleteUserByName(String name){
-        User user = userRepository.findByName(name);
+
+    public void deleteUserByEmail(String email){
+        User user = userRepository.findByEmail(email);
         userRepository.delete(user);
+    }
+    public User getUserByEmail(String email){
+        return userRepository.findByEmail(email);
     }
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         User user;
         try {
-            user = getUserByName(s);
+            user = getUserByEmail(s);
         } catch (NoResultException e) {
             throw new UsernameNotFoundException(s);
         }

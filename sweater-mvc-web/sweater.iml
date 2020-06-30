@@ -30,6 +30,9 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="bootstrap" level="application" />
+    <orderEntry type="library" name="jquery-3.3.1.slim" level="application" />
+    <orderEntry type="library" name="popper.js" level="application" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-web:2.0.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter:2.0.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-logging:2.0.0.RELEASE" level="project" />
@@ -98,8 +101,6 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-orm:5.0.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:5.0.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aspects:5.0.4.RELEASE" level="project" />
-    <orderEntry type="library" name="bootstrap" level="application" />
-    <orderEntry type="library" name="jquery-3.3.1.slim" level="application" />
-    <orderEntry type="library" name="popper.js" level="application" />
+    <orderEntry type="library" name="Maven: org.webjars:jquery:3.3.1" level="project" />
   </component>
 </module>

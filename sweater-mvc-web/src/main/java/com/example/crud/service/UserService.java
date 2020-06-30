@@ -32,6 +32,7 @@ public class UserService implements UserDetailsService {
     public List<User> getAllUsers(){
         return userRepository.findAll();
     }
+
     public void addNewUser(User user){
         userRepository.save(user);
     }
@@ -43,6 +44,7 @@ public class UserService implements UserDetailsService {
     public User getUserByEmail(String email){
         return userRepository.findByEmail(email);
     }
+
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         User user;

@@ -95,7 +95,6 @@ public class UserController {
                 user.getAuthorities().clear();
                 user.addRole(new Role(role));
             }
-            userService.deleteUserByEmail(user.getEmail());
             userService.addNewUser(user);
         }
         return "redirect:/admin";

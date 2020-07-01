@@ -22,7 +22,7 @@ public class User implements UserDetails {
     private String email;
     private Long age;
 
-    @ManyToMany(cascade = {CascadeType.ALL, CascadeType.MERGE},
+    @ManyToMany(cascade = {CascadeType.ALL},
             fetch = FetchType.EAGER)
     @JoinTable(
             name = "users_roles",
@@ -47,6 +47,7 @@ public class User implements UserDetails {
         this.password = password;
         this.roles = roles;
     }
+
 
     public Long getId() {
         return id;

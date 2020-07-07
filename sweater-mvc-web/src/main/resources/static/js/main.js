@@ -43,8 +43,8 @@ $('a[id="user-table-list"]').on('show.bs.tab', function (e) {
                 <td id="email${recordId}">${d.email}</td>
                 <td id="age${recordId}">${d.age}</td>
                 <td id="role${recordId}">${d.roles[0].role}</td>
-                <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editModal" onClick = getDetails(${d}) id=${recordId}>Edit</button></td>
-                <td> <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target = "#deleteModal" onClick = getDetails(${d}) id =${recordId}>Delete</button></td></tr>`
+                <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editModal" onClick = getDetails(${recordId}) id=${recordId}>Edit</button></td>
+                <td> <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target = "#deleteModal" onClick = getDetails(${recordId}) id =${recordId}>Delete</button></td></tr>`
         }
         $('#adminTable')[0].innerHTML = r.join('');
     });

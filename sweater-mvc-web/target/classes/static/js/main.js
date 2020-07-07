@@ -36,48 +36,21 @@ $('a[id="user-table-list"]').on('show.bs.tab', function (e) {
         for (const i in data) {
             const d = data[i];
             recordId = d.id
-            r[++j] = '<tr id = "tr'
-            r[++j] = recordId;
-            r[++j] = '"><td id="id';
-            r[++j] = recordId;
-            r[++j] = '">';
-            r[++j] = recordId;
-            r[++j] = '</td><td id="name';
-            r[++j] = recordId;
-            r[++j] = '">';
-            r[++j] = d.name;
-            r[++j] = '</td><td id="lastName';
-            r[++j] = recordId;
-            r[++j] = '">';
-            r[++j] = d.lastName;
-            r[++j] = '</td><td id="email';
-            r[++j] = recordId;
-            r[++j] = '">';
-            r[++j] = d.email;
-            r[++j] = '</td><td id="age';
-            r[++j] = recordId;
-            r[++j] = '">';
-            r[++j] = d.age;
-            r[++j] = '</td><td id="role';
-            r[++j] = recordId;
-            r[++j] = '">';
-            r[++j] = d.roles[0].role;
-            r[++j] = '</td><td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal"  ' +
-                'data-target="#editModal" onClick = "getDetails(this)" id="';
-            r[++j] = recordId;
-            r[++j] = '">Edit</button>';
-            r[++j] = '</td><td> <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"   ' +
-                'data-target="#deleteModal"  onClick = "getDetails(this)" id="';
-            r[++j] = recordId;
-            r[++j] = '">Delete</button>';
-            r[++j] = '</td></tr>';
+            r[++j] =
+                `<tr id = "tr${recordId}"><td id="id${recordId}">${recordId}</td>
+                <td id="name${recordId}">${d.name}</td>
+                <td id="lastName${recordId}">${d.lastName}</td>
+                <td id="email${recordId}">${d.email}</td>
+                <td id="age${recordId}">${d.age}</td>
+                <td id="role${recordId}">${d.roles[0].role}</td>
+                <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editModal" onClick = getDetails(${d}) id=${recordId}>Edit</button></td>
+                <td> <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target = "#deleteModal" onClick = getDetails(${d}) id =${recordId}>Delete</button></td></tr>`
         }
         $('#adminTable')[0].innerHTML = r.join('');
     });
 });
 
-function getDetails(obj) {
-    const id = obj.id;
+function getDetails(id) {
     $('.modal').on('show.bs.modal', function () {
         $.getJSON('api/user/' + id, function (data) {
             const modal = $('#Edit-Form, #Delete-Form');

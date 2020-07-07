@@ -53,20 +53,4 @@ public class UserController {
         return "user";
     }
 
-    @PostMapping(value = "admin")
-    public String addUser(@RequestParam String name, @RequestParam String password,
-                          @RequestParam String lastName, @RequestParam String email,
-                          @RequestParam Long age, @RequestParam String role) {
-        User user = userService.getUserByEmail(email);
-        if (user == null) {
-            user = new User(name, password, lastName, email, age, new Role(role));
-            userService.addNewUser(user);
-        }
-        return "redirect:/admin";
-    }
-
-
-
-
-
 }

@@ -46,6 +46,13 @@ public class UserService implements UserDetailsService {
         return userRepository.findByEmail(email);
     }
 
+    public User getUserById(Long id) {
+        return userRepository.getUserById(id);
+    }
+    public void deleteUserById(Long id){
+        userRepository.deleteById(id);
+    }
+
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         User user;
